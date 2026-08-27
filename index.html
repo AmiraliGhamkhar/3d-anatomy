@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="Anatomically parameterised 3D human body — skeletal, muscular and visceral systems in Three.js with LOD and adaptive performance." />
+    <title>3D Human Anatomy — Three.js</title>
+    <link rel="stylesheet" href="/src/app/styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="view"></div>
+
+      <!-- Floating labels are absolutely positioned over the canvas -->
+      <div id="labels" aria-hidden="true"></div>
+
+      <header id="topbar">
+        <div class="brand">
+          <h1>Human Anatomy</h1>
+          <span class="sub">Three.js · procedural · 206 bones</span>
+        </div>
+        <div class="controls">
+          <label class="field">
+            <span>Quality</span>
+            <select id="quality">
+              <option value="auto">Auto</option>
+              <option value="ultra">Ultra</option>
+              <option value="high">High</option>
+              <option value="medium">Medium</option>
+              <option value="low">Low</option>
+            </select>
+          </label>
+          <button id="reset" class="btn">Reset view</button>
+          <button id="clear-sel" class="btn ghost">Clear selection</button>
+        </div>
+      </header>
+
+      <aside id="layers" class="panel">
+        <h2>Systems</h2>
+        <div id="layer-list"></div>
+
+        <h2>Skin</h2>
+        <label class="field slider">
+          <span>Opacity <output id="skin-out">22%</output></span>
+          <input id="skin" type="range" min="0" max="100" value="22" />
+        </label>
+
+        <h2>Performance</h2>
+        <dl id="stats"></dl>
+      </aside>
+
+      <aside id="inspector" class="panel">
+        <h2>Find a structure</h2>
+        <input id="search" type="search" placeholder="Search bones, muscles, organs…" autocomplete="off" />
+        <ul id="results"></ul>
+
+        <div id="detail" class="detail" hidden>
+          <h2 id="detail-name"></h2>
+          <p id="detail-latin" class="latin"></p>
+          <p id="detail-meta" class="meta"></p>
+          <p id="detail-note"></p>
+          <div class="row">
+            <button id="focus" class="btn">Focus</button>
+            <button id="isolate" class="btn ghost">Isolate</button>
+          </div>
+        </div>
+      </aside>
+    </div>
+    <script type="module" src="/src/app/main.js"></script>
+  </body>
+</html>
